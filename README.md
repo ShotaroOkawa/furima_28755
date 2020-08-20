@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :item_managements
+- has_one :item_management
 
 
 ## item_managements テーブル
@@ -57,7 +57,7 @@
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | item_management | references | null: false, foreign_key: true |
-| zip_code        | integer    | null: false                    |
+| zip_code        | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | city            | string     | null: false                    |
 | lot_number      | string     | null: false                    |
