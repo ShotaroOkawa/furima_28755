@@ -11,53 +11,62 @@
 | first_name       | string  | null: false  |
 | family_name_kana | string  | null: false  |
 | first_name_kana  | string  | null: false  |
-| birth_year       | integer | null: false  |
-| birth_month      | integer | null: false  |
-| birth_day        | integer | null: false  |
+| birthday         | integer | null: false  |
 
 ### Association
 
 - has_many :items
-- has_many :purchase_infos 
+- has_many :item_managements
+
 
 ## items テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ------     | ------------------------------ |
-| user_id       | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
 | name          | string     | null: false                    |
 | description   | string     | null: false                    |
-| category      | string     | null: false                    |
-| condition     | string     | null: false                    |
-| delivery_fee  | string     | null: false                    |
-| delivery_from | string     | null: false                    |
-| delivery_time | string     | null: false                    |
+| category_id   | integer    | null: false                    |
+| condition_id  | integer    | null: false                    |
+| delv_fee_id   | integer    | null: false                    |
+| delv_from_id  | integer    | null: false                    |
+| delv_time_id  | integer    | null: false                    |
 | price         | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :user
-- has_one :purchase_info
+- has_many :item_managements
 
-## purchase_infos テーブル
 
+## item_managements テーブル
 | Column        | Type       | Options                        |
 | ------------- | ------     | ------------------------------ |
-| user_id       | references | null: false, foreign_key: true |
-| item_id       | string     | null: false, foreign_key: true |
-| card_number   | integer    | null: false                    |
-| expiry_date   | integer    | null: false                    |
-| security_code | integer    | null: false                    |
-| zip_code      | integer    | null: false                    |
-| prefecture    | string     | null: false                    |
-| city          | string     | null: false                    |
-| lot_number    | string     | null: false                    |
-| building_name | string     |                                |
-| telephone     | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true | 
 
 ### Association
 
 - belongs_to :user
-- belongs_to :item 
+- belongs_to :item
+- has_one :address
+
+
+## addresses テーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| item_management | references | null: false, foreign_key: true |
+| zip_code        | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
+| city            | string     | null: false                    |
+| lot_number      | string     | null: false                    |
+| building_name   | string     |                                |
+| telephone       | string     | null: false                    |
+
+### Association
+
+- belongs_to :item_management
+
 
 
