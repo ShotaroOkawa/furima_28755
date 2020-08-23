@@ -8,8 +8,8 @@ window.addEventListener("load", () => {
     let price = input.value;
     let tax = price * 0.1;
     let profit = price - tax;
-    calculated_price1.innerHTML = tax;
-    calculated_price2.innerHTML = profit;
+    calculated_price1.innerHTML = tax.toFixed();
+    calculated_price2.innerHTML = profit.toFixed();
     e.preventDefault();
   })
 })
