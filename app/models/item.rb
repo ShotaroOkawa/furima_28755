@@ -19,5 +19,5 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }  # 価格が¥300~¥9,999,999であるか
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }  # 価格が¥300~¥9,999,999であるか
 end
