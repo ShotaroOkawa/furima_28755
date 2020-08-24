@@ -4,6 +4,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
   has_one_attached :image
 
+  belongs_to :user
+  has_one :item_management
+
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :condition_id
