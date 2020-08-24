@@ -2,6 +2,9 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :condition
+  belongs_to_active_hash :delv_fee
+  belongs_to_active_hash :delv_from
+  belongs_to_active_hash :delv_time
   has_one_attached :image
 
   belongs_to :user
