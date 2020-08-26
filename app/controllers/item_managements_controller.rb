@@ -1,5 +1,6 @@
 class ItemManagementsController < ApplicationController
   before_action :move_to_index, only: [:index, :create] 
+  before_action :move_to_index2, only: [:index, :create] 
 
   def index
     @item = Item.find(params[:item_id])
@@ -40,6 +41,13 @@ class ItemManagementsController < ApplicationController
         redirect_to root_path
       end
     else
+      redirect_to root_path
+    end
+  end
+  
+  def move_to_index2
+    @item = Item.find(params[:item_id])
+    if ItemManagement.exists?(item_id: @item.id)
       redirect_to root_path
     end
   end
