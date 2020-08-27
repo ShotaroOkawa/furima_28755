@@ -5,10 +5,11 @@ class ItemManagementsController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @item_management = ItemManagement.new
-    # @item_management_address = ItemManagementAddress.new(item_management_address_params)
+    @item_management_address = ItemManagementAddress.new
   end
 
   def create
+    binding.pry
     @item_management_address = ItemManagementAddress.new(item_management_address_params)
     if @item_management_address.valid?
       pay_item
@@ -22,7 +23,7 @@ class ItemManagementsController < ApplicationController
 
   private
   def item_management_address_params
-    params.permit(:price, :token, :item_id, :zip_code, :prefecture_id, :city, :lot_number, :building_name, :telephone ).merge(user_id: current_user.id)
+    params.require(:item_management_address).permit(:price, :token, :zip_code, :prefecture_id, :city, :lot_number, :building_name, :telephone).merge(user_id: current_user.id).merge(item_id: params[:item_id])
   end
 
   def pay_item
