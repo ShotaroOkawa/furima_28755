@@ -29,7 +29,7 @@ const pay = () => {
         document.getElementById("charge-form").reset();
       } else {
         const renderDom = document.getElementById("charge-form");
-        const tokenObj = `<input value=nil type="hidden" name='item_management_address[token]'>`;
+        const tokenObj = `<input value="" type="hidden" name='item_management_address[token]'>`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();

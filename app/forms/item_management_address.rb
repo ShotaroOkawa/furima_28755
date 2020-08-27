@@ -8,10 +8,11 @@ class ItemManagementAddress
     validates :city
     validates :lot_number
     validates :telephone
+    validates :token
   end
 
-  validates :prefecture_id, numericality: { other_than: 1 }
-  validates :zip_code, format: { with: /\A\d{3}\-\d{4}\z/ }
+  validates :prefecture_id, numericality: { other_than: 1, message: 'Select' }
+  validates :zip_code, format: { with: /\A\d{3}\-\d{4}\z/, message: 'Input correctly' }
   validates :telephone, format: { with:  /\A\d{1,11}\z/ }
 
   def save

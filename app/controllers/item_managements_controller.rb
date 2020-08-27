@@ -9,7 +9,6 @@ class ItemManagementsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item_management_address = ItemManagementAddress.new(item_management_address_params)
     if @item_management_address.valid?
       pay_item
