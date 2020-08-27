@@ -25,9 +25,9 @@ RSpec.describe ItemManagementAddress, type: :model do
     it '都道府県が空だと保存できないこと' do
       @item_management_address.prefecture_id = nil
       @item_management_address.valid?
-      expect(@item_management_address.errors.full_messages).to include "Prefecture Select"
+      expect(@item_management_address.errors.full_messages).to include 'Prefecture Select'
     end
-    
+
     it '市区町村が空だと保存できないこと' do
       @item_management_address.city = nil
       @item_management_address.valid?
@@ -45,17 +45,17 @@ RSpec.describe ItemManagementAddress, type: :model do
       @item_management_address.valid?
       expect(@item_management_address.errors.full_messages).to include "Telephone can't be blank"
     end
-    
+
     it '郵便番号にハイフンがないと登録できないこと' do
-      @item_management_address.zip_code = "1111111"
+      @item_management_address.zip_code = '1111111'
       @item_management_address.valid?
-      expect(@item_management_address.errors.full_messages).to include "Zip code Input correctly"
+      expect(@item_management_address.errors.full_messages).to include 'Zip code Input correctly'
     end
 
     it '電話番号にハイフンがあると登録できないこと' do
-      @item_management_address.telephone = "090-0000-0000"
+      @item_management_address.telephone = '090-0000-0000'
       @item_management_address.valid?
-      expect(@item_management_address.errors.full_messages).to include "Telephone is invalid"
+      expect(@item_management_address.errors.full_messages).to include 'Telephone is invalid'
     end
   end
 end
