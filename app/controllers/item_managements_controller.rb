@@ -3,8 +3,6 @@ class ItemManagementsController < ApplicationController
   before_action :move_to_index2, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
-    @item_management = ItemManagement.new
     @item_management_address = ItemManagementAddress.new
   end
 
