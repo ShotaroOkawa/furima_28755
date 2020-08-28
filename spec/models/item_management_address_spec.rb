@@ -57,5 +57,11 @@ RSpec.describe ItemManagementAddress, type: :model do
       @item_management_address.valid?
       expect(@item_management_address.errors.full_messages).to include 'Telephone is invalid'
     end
+
+    it '建物名が空でも登録できること' do
+      @item_management_address.building_name = ''
+      expect(@item_management_address).to be_valid
+    end
+
   end
 end
