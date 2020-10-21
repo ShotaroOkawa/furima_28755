@@ -62,6 +62,5 @@ RSpec.describe ItemManagementAddress, type: :model do
       @item_management_address.building_name = ''
       expect(@item_management_address).to be_valid
     end
-
   end
 end
