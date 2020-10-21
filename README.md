@@ -52,6 +52,7 @@ Eメール: purchaser@mail.com
 
 <br>
 
+
 # テーブル設計
 
 ## users テーブル
